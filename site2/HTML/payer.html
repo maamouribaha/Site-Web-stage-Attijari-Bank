@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement - Mon Site de Vente</title>
+    <link rel="stylesheet" href="C:\Users\maamo\OneDrive\Desktop\site2-20240723T104944Z-001\site2\CSS\style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #2f4bfe;
+            color: #fff;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section h2 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            color: #333;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        form .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        form .form-group input,
+        form .form-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            flex-grow: 1;
+        }
+        
+        .form-group .icon {
+            color: #007bff;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+        .order-item {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .order-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        
+        #order-summary {
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 0.1rex;
+            background-color: #2f4bfe;
+            color: #fff;
+        }
+    </style>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="product.html">Produits</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="section">
+                <h2>Adresse de livraison</h2>
+                <form id="address-form">
+                    <div class="form-group">
+                        <i class="icon fas fa-user"></i>
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="icon fas fa-map-marker-alt"></i>
+                        <label for="address">Adresse</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="icon fas fa-city"></i>
+                        <label for="city">Ville</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="icon fas fa-envelope"></i>
+                        <label for="postal-code">Code postal</label>
+                        <input type="text" id="postal-code" name="postal-code" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="icon fas fa-globe"></i>
+                        <label for="country">Pays</label>
+                        <input type="text" id="country" name="country" required>
+                    </div>
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Options de paiement</h2>
+                <form id="payment-form">
+                    <div class="form-group">
+                        <i class="icon fas fa-credit-card"></i>
+                        <label for="card-name">Nom sur la carte</label>
+                        <input type="text" id="card-name" name="card-name" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="icon fas fa-credit-card"></i>
+                        <label for="card-number">Numéro de carte</label>
+                        <input type="text" id="card-number" name="card-number" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="icon fas fa-calendar"></i>
+                        <label for="expiry-date">Date d'expiration</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/AA" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="icon fas fa-lock"></i>
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" required>
+                    </div>
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Récapitulatif de la commande</h2>
+                <div id="order-summary">
+                    <!-- Les articles du panier seront affichés ici -->
+                </div>
+                <p id="order-total">Total: 0DT</p>
+                <button class="btn-primary" onclick="completeOrder()">Payer</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mon Site de Vente. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderSummary = document.getElementById('order-summary');
+            const orderTotal = document.getElementById('order-total');
+
+            function getCart() {
+                return JSON.parse(localStorage.getItem('cart')) || [];
+            }
+
+            function displayOrderSummary() {
+                const cart = getCart();
+                orderSummary.innerHTML = '';
+
+                if (cart.length === 0) {
+                    orderSummary.innerHTML = '<p>Votre panier est vide.</p>';
+                } else {
+                    let total = 0;
+                    cart.forEach(item => {
+                        const itemTotal = item.price * item.quantity;
+                        total += itemTotal;
+                        orderSummary.innerHTML += `
+                            <div class="order-item">
+                                <h3>${item.name}</h3>
+                                <p>Prix : ${item.price}DT</p>
+                                <p>Quantité : ${item.quantity}</p>
+                                <p>Total : ${itemTotal.toFixed(2)}DT</p>
+                            </div>
+                        `;
+                    });
+                    orderTotal.innerText = `Total: ${total.toFixed(2)}DT`;
+                }
+            }
+
+            function completeOrder() {
+                alert('Votre commande a été passée avec succès !');
+                localStorage.removeItem('cart');
+                window.location.href = 'index.html';
+            }
+
+            displayOrderSummary();
+        });
+    </script>
+</body>
+
+</html>

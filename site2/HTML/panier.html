@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - Mon Site de Vente</title>
+    <link rel="stylesheet" href="C:\Users\maamo\OneDrive\Desktop\site2-20240723T104944Z-001\site2\CSS\style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="product.html">Produits</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart">
+            <h1>Votre Panier</h1>
+            <div class="cart-items">
+                <!-- Les articles du panier seront ajoutés ici dynamiquement -->
+            </div>
+            <div class="cart-actions">
+                <button id="empty-cart" class="btn-secondary">Vider le Panier</button>
+                <button id="checkout" class="btn-primary">Procéder au Paiement</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mon Site de Vente. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartContainer = document.querySelector('.cart-items');
+
+            function getCart() {
+                return JSON.parse(localStorage.getItem('cart')) || [];
+            }
+
+            function displayCart() {
+                const cart = getCart();
+                cartContainer.innerHTML = '';
+
+                if (cart.length === 0) {
+                    cartContainer.innerHTML = '<p>Votre panier est vide.</p>';
+                } else {
+                    cart.forEach(item => {
+                        cartContainer.innerHTML += `
+                            <div class="cart-item">
+                                <h3>${item.name}</h3>
+                                <p>Prix : ${item.price}DT</p>
+                                <p>Quantité : ${item.quantity}</p>
+                                <p>Total : ${(item.price * item.quantity).toFixed(2)}DT</p>
+                            </div>
+                        `;
+                    });
+
+
+                    const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+                    cartContainer.innerHTML += `
+                        <div class="cart-total">
+                            <h3>Total de la commande : ${totalAmount}DT</h3>
+                        </div>
+                    `;
+                }
+            }
+
+
+            document.getElementById('empty-cart').addEventListener('click', () => {
+                localStorage.removeItem('cart');
+                displayCart();
+            });
+
+
+            document.getElementById('checkout').addEventListener('click', () => {
+                window.location.href = 'payer.html';
+            });
+
+            displayCart();
+        });
+    </script>
+</body>
+
+</html>

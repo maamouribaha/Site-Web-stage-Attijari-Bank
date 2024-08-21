@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement - Mon Site de Vente</title>
+    <link rel="stylesheet" href="C:\Users\maamo\OneDrive\Desktop\site2-20240723T104944Z-001\site2\CSS\style.css">
+    <script src="C:\Users\maamo\OneDrive\Desktop\site2-20240723T104944Z-001\site2\javascript\pay.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="product.html">Produits</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="payment">
+            <h1>Méthodes de Paiement Disponibles</h1>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <h2>Carte de Crédit</h2>
+                    <p>Nous acceptons les cartes de crédit Visa, MasterCard.</p>
+                    <button class="btn-primary" onclick="toggleInfo('credit-card-info')">En savoir plus</button>
+                    <p id="credit-card-info" class="additional-info">Utilisez votre carte de crédit en toute sécurité grâce à notre système de paiement sécurisé.</p>
+                </div>
+                <div class="payment-method">
+                    <h2>D17</h2>
+                    <p>Payer facilement et rapidement avec votre compte D17</p>
+                    <button class="btn-primary" onclick="toggleInfo('paypal-info')">En savoir plus</button>
+                    <p id="paypal-info" class="additional-info">Connectez-vous à votre compte D17 pour un paiement rapide et sécurisé.</p>
+                </div>
+                <div class="payment-method">
+                    <h2>Virement Bancaire</h2>
+                    <p>Effectuez un virement bancaire directement sur notre compte.</p>
+                    <button class="btn-primary" onclick="toggleInfo('bank-transfer-info')">En savoir plus</button>
+                    <p id="bank-transfer-info" class="additional-info">Vous recevrez nos coordonnées bancaires pour effectuer le virement.</p>
+                </div>
+                <div class="payment-method">
+                    <h2>Paiement à la Livraison</h2>
+                    <p>Payer en espèces à la livraison de votre commande.</p>
+                    <button class="btn-primary" onclick="toggleInfo('cash-on-delivery-info')">En savoir plus</button>
+                    <p id="cash-on-delivery-info" class="additional-info">Préparez le montant exact pour faciliter la transaction lors de la livraison,noter que les paniers à moins de 100DT ne sont pas livrés et le payement doit etre en ligne.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Vente de Matériel Informatique. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>
